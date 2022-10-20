@@ -28,7 +28,9 @@ enum QueryMode {
 
 enum SortOrder { asc, desc }
 
-enum UserScalarFieldEnum { id, email, name, password }
+enum UserScalarFieldEnum { id, email, name, password, role }
+
+enum UserRole { ADMIN, USER, MANAGER }
 
 class UserWhereInput implements _i2.JsonSerializable {
   const UserWhereInput({
@@ -39,6 +41,7 @@ class UserWhereInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<UserWhereInput> AND;
@@ -55,6 +58,8 @@ class UserWhereInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<StringFilter> password;
 
+  final _i2.PrismaNullable<EnumUserRoleFilter> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -65,6 +70,7 @@ class UserWhereInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -75,6 +81,7 @@ class UserOrderByWithRelationInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<SortOrder> id;
@@ -85,6 +92,8 @@ class UserOrderByWithRelationInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<SortOrder> password;
 
+  final _i2.PrismaNullable<SortOrder> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -92,6 +101,7 @@ class UserOrderByWithRelationInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -121,6 +131,7 @@ class UserOrderByWithAggregationInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
     this.$count,
     this.$avg,
     this.$max,
@@ -135,6 +146,8 @@ class UserOrderByWithAggregationInput implements _i2.JsonSerializable {
   final _i2.PrismaNullable<SortOrder> name;
 
   final _i2.PrismaNullable<SortOrder> password;
+
+  final _i2.PrismaNullable<SortOrder> role;
 
   final _i2.PrismaNullable<UserCountOrderByAggregateInput> $count;
 
@@ -153,6 +166,7 @@ class UserOrderByWithAggregationInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
       '_count': $count,
       '_avg': $avg,
       '_max': $max,
@@ -171,6 +185,7 @@ class UserScalarWhereWithAggregatesInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<UserScalarWhereWithAggregatesInput> AND;
@@ -187,6 +202,8 @@ class UserScalarWhereWithAggregatesInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<StringWithAggregatesFilter> password;
 
+  final _i2.PrismaNullable<EnumUserRoleWithAggregatesFilter> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -197,6 +214,7 @@ class UserScalarWhereWithAggregatesInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -206,6 +224,7 @@ class UserCreateInput implements _i2.JsonSerializable {
     required this.email,
     required this.name,
     required this.password,
+    this.role,
   });
 
   final String email;
@@ -214,12 +233,15 @@ class UserCreateInput implements _i2.JsonSerializable {
 
   final String password;
 
+  final _i2.PrismaNullable<UserRole> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -230,6 +252,7 @@ class UserUncheckedCreateInput implements _i2.JsonSerializable {
     required this.email,
     required this.name,
     required this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<int> id;
@@ -240,6 +263,8 @@ class UserUncheckedCreateInput implements _i2.JsonSerializable {
 
   final String password;
 
+  final _i2.PrismaNullable<UserRole> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -247,6 +272,7 @@ class UserUncheckedCreateInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -256,6 +282,7 @@ class UserUpdateInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<StringFieldUpdateOperationsInput> email;
@@ -264,12 +291,15 @@ class UserUpdateInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<StringFieldUpdateOperationsInput> password;
 
+  final _i2.PrismaNullable<EnumUserRoleFieldUpdateOperationsInput> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -280,6 +310,7 @@ class UserUncheckedUpdateInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<IntFieldUpdateOperationsInput> id;
@@ -290,6 +321,8 @@ class UserUncheckedUpdateInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<StringFieldUpdateOperationsInput> password;
 
+  final _i2.PrismaNullable<EnumUserRoleFieldUpdateOperationsInput> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -297,6 +330,7 @@ class UserUncheckedUpdateInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -307,6 +341,7 @@ class UserCreateManyInput implements _i2.JsonSerializable {
     required this.email,
     required this.name,
     required this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<int> id;
@@ -317,6 +352,8 @@ class UserCreateManyInput implements _i2.JsonSerializable {
 
   final String password;
 
+  final _i2.PrismaNullable<UserRole> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -324,6 +361,7 @@ class UserCreateManyInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -333,6 +371,7 @@ class UserUpdateManyMutationInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<StringFieldUpdateOperationsInput> email;
@@ -341,12 +380,15 @@ class UserUpdateManyMutationInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<StringFieldUpdateOperationsInput> password;
 
+  final _i2.PrismaNullable<EnumUserRoleFieldUpdateOperationsInput> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -357,6 +399,7 @@ class UserUncheckedUpdateManyInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<IntFieldUpdateOperationsInput> id;
@@ -367,6 +410,8 @@ class UserUncheckedUpdateManyInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<StringFieldUpdateOperationsInput> password;
 
+  final _i2.PrismaNullable<EnumUserRoleFieldUpdateOperationsInput> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -374,6 +419,7 @@ class UserUncheckedUpdateManyInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -480,12 +526,40 @@ class StringFilter implements _i2.JsonSerializable {
   }
 }
 
+class EnumUserRoleFilter implements _i2.JsonSerializable {
+  const EnumUserRoleFilter({
+    this.equals,
+    this.in$,
+    this.notIn,
+    this.not,
+  });
+
+  final _i2.PrismaNullable<UserRole> equals;
+
+  final _i2.PrismaNullable<List<UserRole>> in$;
+
+  final _i2.PrismaNullable<List<UserRole>> notIn;
+
+  final _i2.PrismaNullable<NestedEnumUserRoleFilter> not;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'equals': equals,
+      'in': in$,
+      'notIn': notIn,
+      'not': not,
+    };
+  }
+}
+
 class UserCountOrderByAggregateInput implements _i2.JsonSerializable {
   const UserCountOrderByAggregateInput({
     this.id,
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<SortOrder> id;
@@ -496,6 +570,8 @@ class UserCountOrderByAggregateInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<SortOrder> password;
 
+  final _i2.PrismaNullable<SortOrder> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -503,6 +579,7 @@ class UserCountOrderByAggregateInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -526,6 +603,7 @@ class UserMaxOrderByAggregateInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<SortOrder> id;
@@ -536,6 +614,8 @@ class UserMaxOrderByAggregateInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<SortOrder> password;
 
+  final _i2.PrismaNullable<SortOrder> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -543,6 +623,7 @@ class UserMaxOrderByAggregateInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -553,6 +634,7 @@ class UserMinOrderByAggregateInput implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   final _i2.PrismaNullable<SortOrder> id;
@@ -563,6 +645,8 @@ class UserMinOrderByAggregateInput implements _i2.JsonSerializable {
 
   final _i2.PrismaNullable<SortOrder> password;
 
+  final _i2.PrismaNullable<SortOrder> role;
+
   @override
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -570,6 +654,7 @@ class UserMinOrderByAggregateInput implements _i2.JsonSerializable {
       'email': email,
       'name': name,
       'password': password,
+      'role': role,
     };
   }
 }
@@ -721,10 +806,62 @@ class StringWithAggregatesFilter implements _i2.JsonSerializable {
   }
 }
 
+class EnumUserRoleWithAggregatesFilter implements _i2.JsonSerializable {
+  const EnumUserRoleWithAggregatesFilter({
+    this.equals,
+    this.in$,
+    this.notIn,
+    this.not,
+    this.$count,
+    this.$min,
+    this.$max,
+  });
+
+  final _i2.PrismaNullable<UserRole> equals;
+
+  final _i2.PrismaNullable<List<UserRole>> in$;
+
+  final _i2.PrismaNullable<List<UserRole>> notIn;
+
+  final _i2.PrismaNullable<NestedEnumUserRoleWithAggregatesFilter> not;
+
+  final _i2.PrismaNullable<NestedIntFilter> $count;
+
+  final _i2.PrismaNullable<NestedEnumUserRoleFilter> $min;
+
+  final _i2.PrismaNullable<NestedEnumUserRoleFilter> $max;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'equals': equals,
+      'in': in$,
+      'notIn': notIn,
+      'not': not,
+      '_count': $count,
+      '_min': $min,
+      '_max': $max,
+    };
+  }
+}
+
 class StringFieldUpdateOperationsInput implements _i2.JsonSerializable {
   const StringFieldUpdateOperationsInput({this.set$});
 
   final _i2.PrismaNullable<String> set$;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'set': set$,
+    };
+  }
+}
+
+class EnumUserRoleFieldUpdateOperationsInput implements _i2.JsonSerializable {
+  const EnumUserRoleFieldUpdateOperationsInput({this.set$});
+
+  final _i2.PrismaNullable<UserRole> set$;
 
   @override
   Map<String, dynamic> toJson() {
@@ -858,6 +995,33 @@ class NestedStringFilter implements _i2.JsonSerializable {
       'contains': contains,
       'startsWith': startsWith,
       'endsWith': endsWith,
+      'not': not,
+    };
+  }
+}
+
+class NestedEnumUserRoleFilter implements _i2.JsonSerializable {
+  const NestedEnumUserRoleFilter({
+    this.equals,
+    this.in$,
+    this.notIn,
+    this.not,
+  });
+
+  final _i2.PrismaNullable<UserRole> equals;
+
+  final _i2.PrismaNullable<List<UserRole>> in$;
+
+  final _i2.PrismaNullable<List<UserRole>> notIn;
+
+  final _i2.PrismaNullable<NestedEnumUserRoleFilter> not;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'equals': equals,
+      'in': in$,
+      'notIn': notIn,
       'not': not,
     };
   }
@@ -1036,6 +1200,45 @@ class NestedStringWithAggregatesFilter implements _i2.JsonSerializable {
   }
 }
 
+class NestedEnumUserRoleWithAggregatesFilter implements _i2.JsonSerializable {
+  const NestedEnumUserRoleWithAggregatesFilter({
+    this.equals,
+    this.in$,
+    this.notIn,
+    this.not,
+    this.$count,
+    this.$min,
+    this.$max,
+  });
+
+  final _i2.PrismaNullable<UserRole> equals;
+
+  final _i2.PrismaNullable<List<UserRole>> in$;
+
+  final _i2.PrismaNullable<List<UserRole>> notIn;
+
+  final _i2.PrismaNullable<NestedEnumUserRoleWithAggregatesFilter> not;
+
+  final _i2.PrismaNullable<NestedIntFilter> $count;
+
+  final _i2.PrismaNullable<NestedEnumUserRoleFilter> $min;
+
+  final _i2.PrismaNullable<NestedEnumUserRoleFilter> $max;
+
+  @override
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'equals': equals,
+      'in': in$,
+      'notIn': notIn,
+      'not': not,
+      '_count': $count,
+      '_min': $min,
+      '_max': $max,
+    };
+  }
+}
+
 @_i1.JsonSerializable(
   createToJson: true,
   createFactory: true,
@@ -1083,6 +1286,7 @@ class UserGroupByOutputType implements _i2.JsonSerializable {
     required this.email,
     required this.name,
     required this.password,
+    required this.role,
     this.$count,
     this.$avg,
     this.$sum,
@@ -1100,6 +1304,8 @@ class UserGroupByOutputType implements _i2.JsonSerializable {
   final String name;
 
   final String password;
+
+  final UserRole role;
 
   @_i1.JsonKey(name: '_count')
   final _i2.PrismaNullable<UserCountAggregateOutputType> $count;
@@ -1148,6 +1354,7 @@ class UserCountAggregateOutputType implements _i2.JsonSerializable {
     required this.email,
     required this.name,
     required this.password,
+    required this.role,
     required this.$all,
   });
 
@@ -1161,6 +1368,8 @@ class UserCountAggregateOutputType implements _i2.JsonSerializable {
   final int name;
 
   final int password;
+
+  final int role;
 
   @_i1.JsonKey(name: '_all')
   final int $all;
@@ -1214,6 +1423,7 @@ class UserMinAggregateOutputType implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   factory UserMinAggregateOutputType.fromJson(Map<String, dynamic> json) =>
@@ -1226,6 +1436,8 @@ class UserMinAggregateOutputType implements _i2.JsonSerializable {
   final _i2.PrismaNullable<String> name;
 
   final _i2.PrismaNullable<String> password;
+
+  final _i2.PrismaNullable<UserRole> role;
 
   @override
   Map<String, dynamic> toJson() => _$UserMinAggregateOutputTypeToJson(this);
@@ -1242,6 +1454,7 @@ class UserMaxAggregateOutputType implements _i2.JsonSerializable {
     this.email,
     this.name,
     this.password,
+    this.role,
   });
 
   factory UserMaxAggregateOutputType.fromJson(Map<String, dynamic> json) =>
@@ -1254,6 +1467,8 @@ class UserMaxAggregateOutputType implements _i2.JsonSerializable {
   final _i2.PrismaNullable<String> name;
 
   final _i2.PrismaNullable<String> password;
+
+  final _i2.PrismaNullable<UserRole> role;
 
   @override
   Map<String, dynamic> toJson() => _$UserMaxAggregateOutputTypeToJson(this);
@@ -1270,6 +1485,7 @@ class User implements _i2.JsonSerializable {
     required this.email,
     required this.name,
     required this.password,
+    required this.role,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
@@ -1281,6 +1497,8 @@ class User implements _i2.JsonSerializable {
   final String name;
 
   final String password;
+
+  final UserRole role;
 
   @override
   Map<String, dynamic> toJson() => _$UserToJson(this);
@@ -1947,6 +2165,40 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               'isUpdatedAt': false,
             },
           },
+          {
+            'name': 'role',
+            'kind': 'enum',
+            'isList': false,
+            'isRequired': true,
+            'isUnique': false,
+            'isId': false,
+            'isReadOnly': false,
+            'hasDefaultValue': true,
+            'type': 'UserRole',
+            'default': 'USER',
+            'isGenerated': false,
+            'isUpdatedAt': false,
+            'dbNames': null,
+            'relationFromFields': null,
+            'relationToFields': null,
+            'relationOnDelete': null,
+            'relationName': null,
+            'documentation': null,
+            'additionalProperties': {
+              'name': 'role',
+              'kind': 'enum',
+              'isList': false,
+              'isRequired': true,
+              'isUnique': false,
+              'isId': false,
+              'isReadOnly': false,
+              'hasDefaultValue': true,
+              'type': 'UserRole',
+              'default': 'USER',
+              'isGenerated': false,
+              'isUpdatedAt': false,
+            },
+          },
         ],
         'primaryKey': null,
         'uniqueFields': [],
@@ -2014,6 +2266,20 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               'isGenerated': false,
               'isUpdatedAt': false,
             },
+            {
+              'name': 'role',
+              'kind': 'enum',
+              'isList': false,
+              'isRequired': true,
+              'isUnique': false,
+              'isId': false,
+              'isReadOnly': false,
+              'hasDefaultValue': true,
+              'type': 'UserRole',
+              'default': 'USER',
+              'isGenerated': false,
+              'isUpdatedAt': false,
+            },
           ],
           'primaryKey': null,
           'uniqueFields': [],
@@ -2024,7 +2290,7 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
     ],
     'enums': [
       {
-        'name': 'UserRoler',
+        'name': 'UserRole',
         'values': [
           {
             'name': 'ADMIN',
@@ -2199,6 +2465,27 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               ],
               'deprecation': null,
             },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'EnumUserRoleFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+              ],
+              'deprecation': null,
+            },
           ],
           'fieldMap': null,
         },
@@ -2256,6 +2543,21 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
             },
             {
               'name': 'password',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'SortOrder',
+                  'location': 'enumTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
               'comment': null,
               'isNullable': false,
               'isRequired': false,
@@ -2366,6 +2668,21 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
             },
             {
               'name': 'password',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'SortOrder',
+                  'location': 'enumTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
               'comment': null,
               'isNullable': false,
               'isRequired': false,
@@ -2605,6 +2922,27 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               ],
               'deprecation': null,
             },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'EnumUserRoleWithAggregatesFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+              ],
+              'deprecation': null,
+            },
           ],
           'fieldMap': null,
         },
@@ -2656,6 +2994,21 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
                   'type': 'String',
                   'location': 'scalar',
                   'namespace': null,
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
                 }
               ],
               'deprecation': null,
@@ -2730,6 +3083,21 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               ],
               'deprecation': null,
             },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
           ],
           'fieldMap': null,
         },
@@ -2797,6 +3165,27 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
                 {
                   'isList': false,
                   'type': 'StringFieldUpdateOperationsInput',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+                {
+                  'isList': false,
+                  'type': 'EnumUserRoleFieldUpdateOperationsInput',
                   'location': 'inputObjectTypes',
                   'namespace': 'prisma',
                 },
@@ -2897,6 +3286,27 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               ],
               'deprecation': null,
             },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+                {
+                  'isList': false,
+                  'type': 'EnumUserRoleFieldUpdateOperationsInput',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+              ],
+              'deprecation': null,
+            },
           ],
           'fieldMap': null,
         },
@@ -2963,6 +3373,21 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
                   'type': 'String',
                   'location': 'scalar',
                   'namespace': null,
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
                 }
               ],
               'deprecation': null,
@@ -3034,6 +3459,27 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
                 {
                   'isList': false,
                   'type': 'StringFieldUpdateOperationsInput',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+                {
+                  'isList': false,
+                  'type': 'EnumUserRoleFieldUpdateOperationsInput',
                   'location': 'inputObjectTypes',
                   'namespace': 'prisma',
                 },
@@ -3128,6 +3574,27 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
                 {
                   'isList': false,
                   'type': 'StringFieldUpdateOperationsInput',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+                {
+                  'isList': false,
+                  'type': 'EnumUserRoleFieldUpdateOperationsInput',
                   'location': 'inputObjectTypes',
                   'namespace': 'prisma',
                 },
@@ -3470,6 +3937,82 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
           'fieldMap': null,
         },
         {
+          'name': 'EnumUserRoleFilter',
+          'constraints': {
+            'maxNumFields': null,
+            'minNumFields': null,
+          },
+          'fields': [
+            {
+              'name': 'equals',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'in',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': true,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'notIn',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': true,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'not',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+                {
+                  'isList': false,
+                  'type': 'NestedEnumUserRoleFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+              ],
+              'deprecation': null,
+            },
+          ],
+          'fieldMap': null,
+        },
+        {
           'name': 'UserCountOrderByAggregateInput',
           'constraints': {
             'maxNumFields': 1,
@@ -3523,6 +4066,21 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
             },
             {
               'name': 'password',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'SortOrder',
+                  'location': 'enumTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
               'comment': null,
               'isNullable': false,
               'isRequired': false,
@@ -3631,6 +4189,21 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               ],
               'deprecation': null,
             },
+            {
+              'name': 'role',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'SortOrder',
+                  'location': 'enumTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
           ],
           'fieldMap': null,
         },
@@ -3688,6 +4261,21 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
             },
             {
               'name': 'password',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'SortOrder',
+                  'location': 'enumTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'role',
               'comment': null,
               'isNullable': false,
               'isRequired': false,
@@ -4182,6 +4770,127 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
           'fieldMap': null,
         },
         {
+          'name': 'EnumUserRoleWithAggregatesFilter',
+          'constraints': {
+            'maxNumFields': null,
+            'minNumFields': null,
+          },
+          'fields': [
+            {
+              'name': 'equals',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'in',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': true,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'notIn',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': true,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'not',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+                {
+                  'isList': false,
+                  'type': 'NestedEnumUserRoleWithAggregatesFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': '_count',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'NestedIntFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': '_min',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'NestedEnumUserRoleFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': '_max',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'NestedEnumUserRoleFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+          ],
+          'fieldMap': null,
+        },
+        {
           'name': 'StringFieldUpdateOperationsInput',
           'constraints': {
             'maxNumFields': 1,
@@ -4199,6 +4908,31 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
                   'type': 'String',
                   'location': 'scalar',
                   'namespace': null,
+                }
+              ],
+              'deprecation': null,
+            }
+          ],
+          'fieldMap': null,
+        },
+        {
+          'name': 'EnumUserRoleFieldUpdateOperationsInput',
+          'constraints': {
+            'maxNumFields': 1,
+            'minNumFields': 1,
+          },
+          'fields': [
+            {
+              'name': 'set',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
                 }
               ],
               'deprecation': null,
@@ -4599,6 +5333,82 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
                 {
                   'isList': false,
                   'type': 'NestedStringFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+              ],
+              'deprecation': null,
+            },
+          ],
+          'fieldMap': null,
+        },
+        {
+          'name': 'NestedEnumUserRoleFilter',
+          'constraints': {
+            'maxNumFields': null,
+            'minNumFields': null,
+          },
+          'fields': [
+            {
+              'name': 'equals',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'in',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': true,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'notIn',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': true,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'not',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+                {
+                  'isList': false,
+                  'type': 'NestedEnumUserRoleFilter',
                   'location': 'inputObjectTypes',
                   'namespace': 'prisma',
                 },
@@ -5181,6 +5991,127 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
           ],
           'fieldMap': null,
         },
+        {
+          'name': 'NestedEnumUserRoleWithAggregatesFilter',
+          'constraints': {
+            'maxNumFields': null,
+            'minNumFields': null,
+          },
+          'fields': [
+            {
+              'name': 'equals',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'in',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': true,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'notIn',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': true,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': 'not',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'UserRole',
+                  'location': 'enumTypes',
+                  'namespace': 'model',
+                },
+                {
+                  'isList': false,
+                  'type': 'NestedEnumUserRoleWithAggregatesFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                },
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': '_count',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'NestedIntFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': '_min',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'NestedEnumUserRoleFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+            {
+              'name': '_max',
+              'comment': null,
+              'isNullable': false,
+              'isRequired': false,
+              'inputTypes': [
+                {
+                  'isList': false,
+                  'type': 'NestedEnumUserRoleFilter',
+                  'location': 'inputObjectTypes',
+                  'namespace': 'prisma',
+                }
+              ],
+              'deprecation': null,
+            },
+          ],
+          'fieldMap': null,
+        },
       ],
     },
     'outputObjectTypes': {
@@ -5235,6 +6166,19 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
                 'type': 'String',
                 'location': 'scalar',
                 'namespace': null,
+              },
+              'args': [],
+              'deprecation': null,
+              'documentation': null,
+            },
+            {
+              'name': 'role',
+              'isNullable': false,
+              'outputType': {
+                'isList': false,
+                'type': 'UserRole',
+                'location': 'enumTypes',
+                'namespace': 'model',
               },
               'args': [],
               'deprecation': null,
@@ -6240,6 +7184,19 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               'documentation': null,
             },
             {
+              'name': 'role',
+              'isNullable': false,
+              'outputType': {
+                'isList': false,
+                'type': 'UserRole',
+                'location': 'enumTypes',
+                'namespace': 'model',
+              },
+              'args': [],
+              'deprecation': null,
+              'documentation': null,
+            },
+            {
               'name': '_count',
               'isNullable': true,
               'outputType': {
@@ -6382,6 +7339,19 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               'documentation': null,
             },
             {
+              'name': 'role',
+              'isNullable': false,
+              'outputType': {
+                'isList': false,
+                'type': 'Int',
+                'location': 'scalar',
+                'namespace': null,
+              },
+              'args': [],
+              'deprecation': null,
+              'documentation': null,
+            },
+            {
               'name': '_all',
               'isNullable': false,
               'outputType': {
@@ -6490,6 +7460,19 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               'deprecation': null,
               'documentation': null,
             },
+            {
+              'name': 'role',
+              'isNullable': true,
+              'outputType': {
+                'isList': false,
+                'type': 'UserRole',
+                'location': 'enumTypes',
+                'namespace': 'model',
+              },
+              'args': [],
+              'deprecation': null,
+              'documentation': null,
+            },
           ],
           'fieldMap': null,
         },
@@ -6548,13 +7531,35 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
               'deprecation': null,
               'documentation': null,
             },
+            {
+              'name': 'role',
+              'isNullable': true,
+              'outputType': {
+                'isList': false,
+                'type': 'UserRole',
+                'location': 'enumTypes',
+                'namespace': 'model',
+              },
+              'args': [],
+              'deprecation': null,
+              'documentation': null,
+            },
           ],
           'fieldMap': null,
         },
       ],
     },
     'enumTypes': {
-      'model': null,
+      'model': [
+        {
+          'name': 'UserRole',
+          'values': [
+            'ADMIN',
+            'USER',
+            'MANAGER',
+          ],
+        }
+      ],
       'prisma': [
         {
           'name': 'QueryMode',
@@ -6586,6 +7591,7 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
             'email',
             'name',
             'password',
+            'role',
           ],
         },
       ],
@@ -6621,7 +7627,7 @@ final _i3.Document dmmf = _i3.Document.fromJson(<String, dynamic>{
   },
 });
 final String schema = _i4.utf8.decode(_i4.base64.decode(
-    r'Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgICAgICAgID0gInByaXNtYS1jbGllbnQtZGFydCIKICBwcmV2aWV3RmVhdHVyZXMgPSBbImludGVyYWN0aXZlVHJhbnNhY3Rpb25zIl0KfQoKZGF0YXNvdXJjZSBkYiB7CiAgcHJvdmlkZXIgPSAicG9zdGdyZXNxbCIKICB1cmwgICAgICA9IGVudigiREFUQUJBU0VfVVJMIikKfQoKbW9kZWwgVXNlciB7CiAgaWQgICAgICAgSW50ICAgIEBpZCBAZGVmYXVsdChhdXRvaW5jcmVtZW50KCkpCiAgZW1haWwgICAgU3RyaW5nIEB1bmlxdWUKICBuYW1lICAgICBTdHJpbmcKICBwYXNzd29yZCBTdHJpbmcKfQoKZW51bSBVc2VyUm9sZXIgewogIEFETUlOCiAgVVNFUgogIE1BTkFHRVIKfQo='));
+    r'Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgICAgICAgID0gInByaXNtYS1jbGllbnQtZGFydCIKICBwcmV2aWV3RmVhdHVyZXMgPSBbImludGVyYWN0aXZlVHJhbnNhY3Rpb25zIl0KfQoKZGF0YXNvdXJjZSBkYiB7CiAgcHJvdmlkZXIgPSAicG9zdGdyZXNxbCIKICB1cmwgICAgICA9IGVudigiREFUQUJBU0VfVVJMIikKfQoKbW9kZWwgVXNlciB7CiAgaWQgICAgICAgSW50ICAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkKICBlbWFpbCAgICBTdHJpbmcgICBAdW5pcXVlCiAgbmFtZSAgICAgU3RyaW5nCiAgcGFzc3dvcmQgU3RyaW5nCiAgcm9sZSAgICAgVXNlclJvbGUgQGRlZmF1bHQoVVNFUikKfQoKZW51bSBVc2VyUm9sZSB7CiAgQURNSU4KICBVU0VSCiAgTUFOQUdFUgp9Cg=='));
 const String _executable =
     r'/Users/vinicio/Documents/cursos/dart/backend/.dart_tool/prisma/query-engine';
 

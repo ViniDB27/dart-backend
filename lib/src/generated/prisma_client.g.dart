@@ -46,6 +46,7 @@ UserGroupByOutputType _$UserGroupByOutputTypeFromJson(
       email: json['email'] as String,
       name: json['name'] as String,
       password: json['password'] as String,
+      role: $enumDecode(_$UserRoleEnumMap, json['role']),
       $count: json['_count'] == null
           ? null
           : UserCountAggregateOutputType.fromJson(
@@ -75,12 +76,19 @@ Map<String, dynamic> _$UserGroupByOutputTypeToJson(
       'email': instance.email,
       'name': instance.name,
       'password': instance.password,
+      'role': _$UserRoleEnumMap[instance.role]!,
       '_count': instance.$count?.toJson(),
       '_avg': instance.$avg?.toJson(),
       '_sum': instance.$sum?.toJson(),
       '_min': instance.$min?.toJson(),
       '_max': instance.$max?.toJson(),
     };
+
+const _$UserRoleEnumMap = {
+  UserRole.ADMIN: 'ADMIN',
+  UserRole.USER: 'USER',
+  UserRole.MANAGER: 'MANAGER',
+};
 
 AffectedRowsOutput _$AffectedRowsOutputFromJson(Map<String, dynamic> json) =>
     AffectedRowsOutput(
@@ -99,6 +107,7 @@ UserCountAggregateOutputType _$UserCountAggregateOutputTypeFromJson(
       email: json['email'] as int,
       name: json['name'] as int,
       password: json['password'] as int,
+      role: json['role'] as int,
       $all: json['_all'] as int,
     );
 
@@ -109,6 +118,7 @@ Map<String, dynamic> _$UserCountAggregateOutputTypeToJson(
       'email': instance.email,
       'name': instance.name,
       'password': instance.password,
+      'role': instance.role,
       '_all': instance.$all,
     };
 
@@ -143,6 +153,7 @@ UserMinAggregateOutputType _$UserMinAggregateOutputTypeFromJson(
       email: json['email'] as String?,
       name: json['name'] as String?,
       password: json['password'] as String?,
+      role: $enumDecodeNullable(_$UserRoleEnumMap, json['role']),
     );
 
 Map<String, dynamic> _$UserMinAggregateOutputTypeToJson(
@@ -152,6 +163,7 @@ Map<String, dynamic> _$UserMinAggregateOutputTypeToJson(
       'email': instance.email,
       'name': instance.name,
       'password': instance.password,
+      'role': _$UserRoleEnumMap[instance.role],
     };
 
 UserMaxAggregateOutputType _$UserMaxAggregateOutputTypeFromJson(
@@ -161,6 +173,7 @@ UserMaxAggregateOutputType _$UserMaxAggregateOutputTypeFromJson(
       email: json['email'] as String?,
       name: json['name'] as String?,
       password: json['password'] as String?,
+      role: $enumDecodeNullable(_$UserRoleEnumMap, json['role']),
     );
 
 Map<String, dynamic> _$UserMaxAggregateOutputTypeToJson(
@@ -170,6 +183,7 @@ Map<String, dynamic> _$UserMaxAggregateOutputTypeToJson(
       'email': instance.email,
       'name': instance.name,
       'password': instance.password,
+      'role': _$UserRoleEnumMap[instance.role],
     };
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
@@ -177,6 +191,7 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       email: json['email'] as String,
       name: json['name'] as String,
       password: json['password'] as String,
+      role: $enumDecode(_$UserRoleEnumMap, json['role']),
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -184,4 +199,5 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'email': instance.email,
       'name': instance.name,
       'password': instance.password,
+      'role': _$UserRoleEnumMap[instance.role]!,
     };
